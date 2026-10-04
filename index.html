@@ -1,230 +1,1338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="MdPwkmdCFdmW0XG0lHFdL5B0bK9RjwCMgweGSnbBJAM" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quizly AI — Smart Quiz Maker</title>
-<meta name="description" content="Create beautiful AI-powered quizzes in seconds.">
-<style>
-:root{
-  --bg:#f7f8fc;--card:#fff;--text:#172033;--muted:#667085;--primary:#6c5ce7;
-  --primary2:#8b7cf6;--line:#e8eaf1;--success:#18a66a;--danger:#e55353;
-  --shadow:0 18px 50px rgba(34,31,80,.10);--radius:24px;
-}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);background:var(--bg)}
-button,input,select{font:inherit}.container{width:min(1120px,92%);margin:auto}
-nav{height:76px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:23px;font-weight:900;letter-spacing:-.7px}.logo span{color:var(--primary)}
-.navlinks{display:flex;gap:26px;align-items:center}.navlinks a{color:#4b5565;text-decoration:none;font-size:14px;font-weight:600}
-.btn{border:0;border-radius:13px;padding:13px 19px;font-weight:800;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}
-.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--primary);color:white;box-shadow:0 8px 22px rgba(108,92,231,.25)}
-.btn-light{background:white;color:var(--text);border:1px solid var(--line)}
-.hero{padding:72px 0 76px;text-align:center;background:radial-gradient(circle at 50% 5%,#eeeaff,transparent 45%)}
-.badge{display:inline-flex;background:#eeebff;color:#5b4bd6;padding:8px 13px;border-radius:999px;font-size:12px;font-weight:800}
-h1{font-size:clamp(42px,7vw,74px);line-height:.98;letter-spacing:-3px;margin:20px auto 18px;max-width:850px}
-.hero h1 span{color:var(--primary)}.hero p{max-width:650px;margin:0 auto 28px;color:var(--muted);font-size:18px;line-height:1.6}
-.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.section{padding:72px 0}.section-head{text-align:center;margin-bottom:38px}.section-head h2{font-size:36px;letter-spacing:-1.5px;margin:0 0 10px}.section-head p{color:var(--muted);margin:0}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature,.step,.pricing,.quiz-card,.result-card{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--radius)}
-.feature{padding:28px}.icon{width:48px;height:48px;border-radius:15px;background:#f0edff;display:grid;place-items:center;font-size:23px;margin-bottom:18px}.feature h3{margin:0 0 8px}.feature p{margin:0;color:var(--muted);line-height:1.55}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{padding:25px}.num{font-size:13px;color:var(--primary);font-weight:900}.step h3{margin:10px 0 7px}.step p{color:var(--muted);line-height:1.5;margin:0}
-.cta{padding:44px;border-radius:30px;background:#17132f;color:white;text-align:center}.cta h2{font-size:36px;margin:0 0 10px}.cta p{color:#c9c5db;margin:0 0 22px}
-footer{padding:30px 0;color:var(--muted);font-size:13px;text-align:center}
+  <meta charset="UTF-8">
 
-/* App */
-#app{display:none;min-height:100vh}.appbar{height:72px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.appbar .container{display:flex;justify-content:space-between;align-items:center}.back{background:none;border:0;cursor:pointer;font-weight:700;color:var(--muted)}
-.setup-wrap{padding:50px 0}.setup{max-width:760px;margin:auto;background:white;border:1px solid var(--line);border-radius:28px;padding:35px;box-shadow:var(--shadow)}.setup h2{font-size:32px;margin:0 0 8px}.setup>p{color:var(--muted);margin-top:0}
-.field{margin:22px 0}.field label{display:block;font-size:13px;font-weight:800;margin-bottom:8px}.field input,.field select{width:100%;border:1px solid #dfe2ea;padding:14px;border-radius:12px;outline:none;background:#fff}.field input:focus,.field select:focus{border-color:var(--primary);box-shadow:0 0 0 3px #eeeaff}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}.choice-row{display:flex;gap:9px;flex-wrap:wrap}.choice{border:1px solid var(--line);padding:11px 15px;border-radius:11px;cursor:pointer;font-size:13px;font-weight:700}.choice.active{border-color:var(--primary);background:#f0edff;color:#5748cf}
-.quiz-wrap{padding:42px 0}.quiz-card{max-width:820px;margin:auto;padding:35px}.progress-top{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;font-weight:700}.progress{height:8px;background:#eceef4;border-radius:99px;margin:12px 0 35px;overflow:hidden}.progress i{display:block;height:100%;background:var(--primary);border-radius:99px;transition:.3s}.quiz-card h2{font-size:27px;line-height:1.3;margin:0 0 25px}.options{display:grid;gap:12px}.option{background:white;border:1px solid #dfe2ea;border-radius:15px;padding:17px;text-align:left;cursor:pointer;display:flex;gap:13px;align-items:center}.option:hover{border-color:var(--primary)}.option .letter{width:34px;height:34px;border-radius:10px;background:#f3f4f8;display:grid;place-items:center;font-weight:900}.option.selected{border-color:var(--primary);background:#f5f3ff}.option.selected .letter{background:var(--primary);color:white}.quiz-actions{display:flex;justify-content:space-between;margin-top:27px}
-.results{padding:55px 0}.result-card{max-width:760px;margin:auto;padding:40px;text-align:center}.score-ring{width:145px;height:145px;border-radius:50%;border:12px solid #eae8ff;display:grid;place-items:center;margin:15px auto 25px;font-size:30px;font-weight:900;color:var(--primary)}.result-card h2{font-size:34px;margin:0 0 8px}.result-card p{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}.stat{background:#f8f8fb;padding:18px;border-radius:15px}.stat strong{display:block;font-size:22px}.stat span{font-size:12px;color:var(--muted)}.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-.review{text-align:left;margin-top:30px;border-top:1px solid var(--line);padding-top:25px}.review-item{padding:16px 0;border-bottom:1px solid var(--line)}.review-item strong{display:block;margin-bottom:7px}.correct{color:var(--success);font-size:13px}.wrong{color:var(--danger);font-size:13px}
-@media(max-width:760px){.navlinks{display:none}.features,.steps{grid-template-columns:1fr}.row{grid-template-columns:1fr}h1{letter-spacing:-2px}.hero{padding-top:45px}.setup,.quiz-card,.result-card{padding:24px}.stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:1/-1}}
-</style>
+  <!-- Mobile Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Title -->
+  <title>Quizly AI - Free AI Quiz Maker Online</title>
+
+  <!-- SEO Description -->
+  <meta
+    name="description"
+    content="Quizly AI is a free online quiz maker. Create fun quizzes by topic, difficulty, and question count. Test your knowledge with interactive multiple-choice quizzes."
+  >
+
+  <!-- Keywords -->
+  <meta
+    name="keywords"
+    content="Quizly AI, AI quiz maker, free quiz maker, online quiz maker, quiz generator, free online quizzes, quiz creator, multiple choice quiz, trivia quiz"
+  >
+
+  <!-- Search Engine Instructions -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical URL -->
+  <link
+    rel="canonical"
+    href="https://puspakamalm-hue.github.io/quizly-ai/"
+  >
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Quizly AI - Free Online Quiz Maker">
+  <meta
+    property="og:description"
+    content="Create and play fun online quizzes with Quizly AI."
+  >
+  <meta
+    property="og:url"
+    content="https://puspakamalm-hue.github.io/quizly-ai/"
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Quizly AI">
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary">
+  <meta
+    name="twitter:title"
+    content="Quizly AI - Free Online Quiz Maker"
+  >
+  <meta
+    name="twitter:description"
+    content="Create and play fun online quizzes with Quizly AI."
+  >
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Quizly AI",
+    "url": "https://puspakamalm-hue.github.io/quizly-ai/",
+    "description": "A free online quiz maker for creating and playing interactive quizzes.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8fc;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e8eaf0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      color: #5b4bdb;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #111827;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #4b5563;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #5b4bdb;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 90px 0 80px;
+      text-align: center;
+      background: linear-gradient(135deg, #f5f3ff, #eef4ff);
+    }
+
+    .badge {
+      display: inline-block;
+      background: white;
+      color: #5b4bdb;
+      border: 1px solid #ddd8ff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 1.08;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .hero h1 span {
+      color: #5b4bdb;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      color: #5d6677;
+      font-size: 19px;
+    }
+
+    .primary-btn {
+      border: none;
+      background: #5b4bdb;
+      color: white;
+      padding: 15px 27px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+      background: #4939c4;
+    }
+
+    .secondary-btn {
+      border: 1px solid #d9dce6;
+      background: white;
+      color: #333;
+      padding: 15px 27px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    /* FEATURES */
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: #687386;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid #e7e9f0;
+      box-shadow: 0 8px 30px rgba(30, 35, 60, 0.05);
+    }
+
+    .feature-icon {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .feature-card p {
+      color: #687386;
+    }
+
+    /* HOW IT WORKS */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .step {
+      text-align: center;
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      border: 1px solid #e7e9f0;
+    }
+
+    .step-number {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: #5b4bdb;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* QUIZ APP */
+
+    #quiz-app {
+      display: none;
+      background: white;
+      padding: 35px 0 70px;
+    }
+
+    .quiz-box {
+      max-width: 750px;
+      margin: auto;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 12px 40px rgba(30, 35, 60, 0.08);
+    }
+
+    .quiz-box h2 {
+      margin-bottom: 10px;
+    }
+
+    .form-group {
+      margin: 20px 0;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d7dbe5;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #5b4bdb;
+    }
+
+    .quiz-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      color: #687386;
+      font-weight: 700;
+    }
+
+    .progress {
+      width: 100%;
+      height: 9px;
+      background: #eceef4;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: #5b4bdb;
+      transition: 0.3s;
+    }
+
+    .question {
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .option {
+      width: 100%;
+      text-align: left;
+      padding: 15px;
+      border: 1px solid #dfe2e9;
+      background: white;
+      border-radius: 12px;
+      transition: 0.2s;
+    }
+
+    .option:hover {
+      border-color: #5b4bdb;
+      background: #f8f7ff;
+    }
+
+    .option.selected {
+      border-color: #5b4bdb;
+      background: #efedff;
+    }
+
+    .quiz-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+      gap: 12px;
+    }
+
+    /* RESULTS */
+
+    .result-card {
+      text-align: center;
+    }
+
+    .score {
+      font-size: 60px;
+      font-weight: 900;
+      color: #5b4bdb;
+      margin: 15px 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .stat {
+      background: #f7f7fb;
+      padding: 20px;
+      border-radius: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 26px;
+    }
+
+    .review {
+      text-align: left;
+      margin-top: 25px;
+    }
+
+    .review-item {
+      border: 1px solid #e5e7eb;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .correct {
+      border-left: 5px solid #22c55e;
+    }
+
+    .wrong {
+      border-left: 5px solid #ef4444;
+    }
+
+    /* SEO CONTENT */
+
+    .seo-content {
+      background: white;
+    }
+
+    .seo-content .content {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .seo-content h2 {
+      font-size: 30px;
+      margin: 30px 0 12px;
+    }
+
+    .seo-content p {
+      color: #5f6878;
+      margin-bottom: 15px;
+    }
+
+    /* FAQ */
+
+    .faq {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    summary {
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    details p {
+      margin-top: 12px;
+      color: #687386;
+    }
+
+    /* CTA */
+
+    .cta {
+      background: #17152d;
+      color: white;
+      text-align: center;
+    }
+
+    .cta p {
+      color: #c9c7d8;
+      max-width: 650px;
+      margin: 15px auto 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #11101f;
+      color: #aaa7b9;
+      text-align: center;
+      padding: 25px;
+    }
+
+    footer a {
+      color: #cfcbe7;
+      text-decoration: none;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      .features,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .quiz-box {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div id="landing">
-<header>
-  <div class="container">
-    <nav>
-      <div class="logo">Quizly<span>AI</span></div>
-      <div class="navlinks">
-        <a href="#features">Features</a><a href="#how">How it works</a><a href="#pricing">Pricing</a>
-        <button class="btn btn-primary" onclick="openApp()">Create Quiz</button>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">Quizly<span>AI</span></a>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#faq">FAQ</a>
       </div>
-    </nav>
-  </div>
-</header>
 
-<main>
-<section class="hero">
-  <div class="container">
-    <div class="badge">✦ AI-powered quiz creation</div>
-    <h1>Create smarter quizzes <span>in seconds.</span></h1>
-    <p>Turn any topic into an engaging quiz with questions, answers, explanations, scoring, and instant results.</p>
-    <div class="hero-actions">
-      <button class="btn btn-primary" onclick="openApp()">✨ Create a Quiz</button>
-      <a class="btn btn-light" href="#features">Explore Features</a>
+      <button class="primary-btn" onclick="showQuiz()">
+        Create Quiz
+      </button>
     </div>
-  </div>
-</section>
+  </nav>
 
-<section class="section" id="features">
- <div class="container">
-  <div class="section-head"><h2>Everything you need</h2><p>A clean quiz experience for students, teachers, creators, and curious minds.</p></div>
-  <div class="features">
-   <div class="feature"><div class="icon">✨</div><h3>AI Quiz Generator</h3><p>Enter a topic and generate a ready-to-play quiz with different difficulty levels.</p></div>
-   <div class="feature"><div class="icon">🎯</div><h3>Instant Scoring</h3><p>Get your score, percentage, correct answers, and performance summary instantly.</p></div>
-   <div class="feature"><div class="icon">📚</div><h3>Multiple Subjects</h3><p>Create quizzes for science, math, English, history, general knowledge, and more.</p></div>
-   <div class="feature"><div class="icon">🧠</div><h3>Smart Difficulty</h3><p>Choose easy, medium, or hard questions to match your learning goal.</p></div>
-   <div class="feature"><div class="icon">📊</div><h3>Review Answers</h3><p>Review every question after the quiz and see which answers you missed.</p></div>
-   <div class="feature"><div class="icon">📱</div><h3>Fully Responsive</h3><p>Designed to look great on phones, tablets, laptops, and large screens.</p></div>
-  </div>
- </div>
-</section>
 
-<section class="section" id="how">
- <div class="container">
-  <div class="section-head"><h2>How it works</h2><p>Three simple steps from idea to finished quiz.</p></div>
-  <div class="steps">
-   <div class="step"><div class="num">01</div><h3>Choose a topic</h3><p>Tell Quizly what you want to learn or test.</p></div>
-   <div class="step"><div class="num">02</div><h3>Customize</h3><p>Select question count, difficulty, age group, and format.</p></div>
-   <div class="step"><div class="num">03</div><h3>Play & learn</h3><p>Answer questions, see your score, and review your mistakes.</p></div>
-  </div>
- </div>
-</section>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
 
-<section class="section" id="pricing">
- <div class="container"><div class="cta"><h2>Ready to make your first quiz?</h2><p>Start with the interactive quiz builder—no account required in this demo.</p><button class="btn btn-primary" onclick="openApp()">Start Creating →</button></div></div>
-</section>
-</main>
-<footer>© 2026 Quizly AI · Built as a modern quiz-maker MVP</footer>
-</div>
+      <div class="badge">✨ Free Online Quiz Maker</div>
 
-<div id="app">
- <div class="appbar"><div class="container">
-   <div class="logo">Quizly<span>AI</span></div>
-   <button class="back" onclick="showLanding()">← Back to home</button>
- </div></div>
+      <h1>
+        Create Fun Quizzes<br>
+        <span>In Seconds</span>
+      </h1>
 
- <section id="setupScreen" class="setup-wrap">
-  <div class="container">
-   <div class="setup">
-    <h2>Create your quiz</h2><p>Customize the quiz, then generate it.</p>
-    <div class="field"><label>QUIZ TOPIC</label><input id="topic" value="General Knowledge" placeholder="e.g. Solar System, Animals, English grammar"></div>
-    <div class="row">
-     <div class="field"><label>NUMBER OF QUESTIONS</label><div class="choice-row" id="countChoices"><div class="choice active" data-value="5">5</div><div class="choice" data-value="10">10</div><div class="choice" data-value="15">15</div></div></div>
-     <div class="field"><label>DIFFICULTY</label><div class="choice-row" id="difficultyChoices"><div class="choice active" data-value="Easy">Easy</div><div class="choice" data-value="Medium">Medium</div><div class="choice" data-value="Hard">Hard</div></div></div>
+      <p>
+        Quizly AI is a free online quiz maker that lets you create
+        interactive quizzes by topic, difficulty and number of questions.
+        Test your knowledge and see your results instantly.
+      </p>
+
+      <button class="primary-btn" onclick="showQuiz()">
+        🚀 Create Your Quiz
+      </button>
+
     </div>
-    <div class="field"><label>QUESTION TYPE</label><select id="type"><option>Multiple Choice</option><option>True / False</option></select></div>
-    <button class="btn btn-primary" style="width:100%" onclick="generateQuiz()">✨ Generate Quiz</button>
-   </div>
-  </div>
- </section>
+  </header>
 
- <section id="quizScreen" class="quiz-wrap" style="display:none">
-  <div class="container"><div class="quiz-card">
-   <div class="progress-top"><span id="qLabel">Question 1 of 5</span><span id="topicLabel">General Knowledge</span></div>
-   <div class="progress"><i id="progressBar" style="width:20%"></i></div>
-   <h2 id="questionText"></h2><div class="options" id="options"></div>
-   <div class="quiz-actions"><button class="btn btn-light" onclick="prevQuestion()">← Previous</button><button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next →</button></div>
-  </div></div>
- </section>
 
- <section id="resultScreen" class="results" style="display:none">
-  <div class="container"><div class="result-card">
-   <div class="badge">Quiz complete</div>
-   <div class="score-ring" id="scoreRing">0%</div>
-   <h2 id="resultTitle">Great job!</h2><p id="resultText"></p>
-   <div class="stats"><div class="stat"><strong id="correctStat">0</strong><span>Correct</span></div><div class="stat"><strong id="wrongStat">0</strong><span>Wrong</span></div><div class="stat"><strong id="totalStat">0</strong><span>Total</span></div></div>
-   <div class="result-actions"><button class="btn btn-primary" onclick="restartQuiz()">↻ Try Again</button><button class="btn btn-light" onclick="showLanding()">Home</button></div>
-   <div class="review" id="review"></div>
-  </div></div>
- </section>
-</div>
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
 
-<script>
-const quizBank={
- "General Knowledge":[
-  ["Which is the largest planet in our solar system?","Jupiter","Mars","Earth","Venus"],
-  ["Which ocean is the largest?","Pacific Ocean","Atlantic Ocean","Indian Ocean","Arctic Ocean"],
-  ["How many continents are there?","7","5","6","8"],
-  ["Which animal is known as the King of the Jungle?","Lion","Tiger","Elephant","Giraffe"],
-  ["What is the capital of France?","Paris","Rome","Madrid","Berlin"],
-  ["Which gas do humans need to breathe?","Oxygen","Helium","Hydrogen","Neon"],
-  ["How many days are in a leap year?","366","365","364","367"],
-  ["Which is the fastest land animal?","Cheetah","Horse","Lion","Leopard"],
-  ["Which planet is known as the Red Planet?","Mars","Venus","Saturn","Mercury"],
-  ["What is the smallest prime number?","2","1","3","0"],
-  ["Which instrument has black and white keys?","Piano","Flute","Drum","Violin"],
-  ["What is H2O commonly called?","Water","Oxygen","Salt","Hydrogen"],
-  ["Which month has 28 days in a common year?","February","January","March","April"],
-  ["How many sides does a triangle have?","3","4","5","6"],
-  ["Which star is closest to Earth?","The Sun","Sirius","Polaris","Vega"]
- ],
- "Science":[
-  ["What force pulls objects toward Earth?","Gravity","Friction","Magnetism","Pressure"],
-  ["Which organ pumps blood around the body?","Heart","Liver","Lung","Kidney"],
-  ["What do plants use to make food?","Sunlight","Sound","Plastic","Smoke"],
-  ["What is the chemical symbol for oxygen?","O","H","C","N"],
-  ["Which state of matter has a fixed shape?","Solid","Liquid","Gas","Plasma"]
- ],
- "Animals":[
-  ["Which animal is the largest land animal?","African elephant","Lion","Giraffe","Rhino"],
-  ["What do bees make?","Honey","Milk","Silk","Wax paper"],
-  ["Which animal is famous for changing its color?","Chameleon","Penguin","Horse","Rabbit"],
-  ["Which bird cannot fly?","Penguin","Eagle","Parrot","Sparrow"],
-  ["What is a baby dog called?","Puppy","Kitten","Calf","Foal"]
- ]
-};
+      <div class="section-heading">
+        <h2>Powerful Quiz Maker Features</h2>
 
-let selectedCount=5, difficulty="Easy", quiz=[], current=0, answers=[];
+        <p>
+          Everything you need to create and enjoy engaging online quizzes.
+        </p>
+      </div>
 
-function openApp(){document.getElementById("landing").style.display="none";document.getElementById("app").style.display="block";window.scrollTo(0,0)}
-function showLanding(){document.getElementById("app").style.display="none";document.getElementById("landing").style.display="block";window.scrollTo(0,0)}
-function wireChoices(id,cb){document.querySelectorAll("#"+id+" .choice").forEach(x=>x.onclick=()=>{document.querySelectorAll("#"+id+" .choice").forEach(y=>y.classList.remove("active"));x.classList.add("active");cb(x.dataset.value)})}
-wireChoices("countChoices",v=>selectedCount=+v);wireChoices("difficultyChoices",v=>difficulty=v);
+      <div class="features">
 
-function generateQuiz(){
- const topic=document.getElementById("topic").value.trim()||"General Knowledge";
- let bank=quizBank[topic]||quizBank["General Knowledge"];
- quiz=shuffle(bank).slice(0,Math.min(selectedCount,bank.length)).map((q,i)=>({q:q[0],options:shuffle([q[1],q[2],q[3],q[4]]),answer:q[1]}));
- current=0;answers=new Array(quiz.length).fill(null);
- document.getElementById("setupScreen").style.display="none";document.getElementById("quizScreen").style.display="block";document.getElementById("resultScreen").style.display="none";
- document.getElementById("topicLabel").textContent=topic+" · "+difficulty;renderQuestion();
-}
-function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
-function renderQuestion(){
- const item=quiz[current], total=quiz.length;
- document.getElementById("qLabel").textContent=`Question ${current+1} of ${total}`;
- document.getElementById("progressBar").style.width=((current+1)/total*100)+"%";
- document.getElementById("questionText").textContent=item.q;
- const box=document.getElementById("options");box.innerHTML="";
- item.options.forEach((opt,i)=>{
-   const b=document.createElement("button");b.className="option"+(answers[current]===opt?" selected":"");
-   b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${opt}</span>`;
-   b.onclick=()=>{answers[current]=opt;renderQuestion()};box.appendChild(b);
- });
- document.getElementById("nextBtn").textContent=current===total-1?"Finish Quiz →":"Next →";
-}
-function nextQuestion(){
- if(!answers[current]){alert("Please select an answer first.");return}
- if(current<quiz.length-1){current++;renderQuestion()}else showResults();
-}
-function prevQuestion(){if(current>0){current--;renderQuestion()}}
-function showResults(){
- document.getElementById("quizScreen").style.display="none";document.getElementById("resultScreen").style.display="block";
- let correct=quiz.reduce((n,x,i)=>n+(answers[i]===x.answer),0), total=quiz.length,pct=Math.round(correct/total*100);
- document.getElementById("scoreRing").textContent=pct+"%";document.getElementById("correctStat").textContent=correct;document.getElementById("wrongStat").textContent=total-correct;document.getElementById("totalStat").textContent=total;
- document.getElementById("resultTitle").textContent=pct>=80?"Excellent work!":pct>=60?"Nice job!":"Keep practicing!";
- document.getElementById("resultText").textContent=`You answered ${correct} out of ${total} questions correctly.`;
- const review=document.getElementById("review");review.innerHTML="<h3>Answer review</h3>";
- quiz.forEach((x,i)=>{const ok=answers[i]===x.answer;review.innerHTML+=`<div class="review-item"><strong>${i+1}. ${x.q}</strong><div class="${ok?'correct':'wrong'}">${ok?"✓ Correct":"✕ Your answer: "+(answers[i]||"Not answered")+" · Correct: "+x.answer}</div></div>`})
- window.scrollTo(0,0);
-}
-function restartQuiz(){document.getElementById("resultScreen").style.display="none";document.getElementById("setupScreen").style.display="block";window.scrollTo(0,0)}
-</script>
+        <article class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Choose Your Topic</h3>
+          <p>
+            Create quizzes around science, animals, general knowledge
+            and other interesting subjects.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Choose Difficulty</h3>
+          <p>
+            Select Easy, Medium or Hard questions depending on your
+            knowledge level.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Instant Results</h3>
+          <p>
+            See your score, correct answers, incorrect answers and
+            review your quiz performance.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>How Quizly AI Works</h2>
+
+        <p>
+          Start testing your knowledge in just three simple steps.
+        </p>
+      </div>
+
+      <div class="steps">
+
+        <article class="step">
+          <div class="step-number">1</div>
+          <h3>Choose a Topic</h3>
+          <p>
+            Enter a topic or choose one of the available subjects.
+          </p>
+        </article>
+
+        <article class="step">
+          <div class="step-number">2</div>
+          <h3>Customize Your Quiz</h3>
+          <p>
+            Select the number of questions and difficulty level.
+          </p>
+        </article>
+
+        <article class="step">
+          <div class="step-number">3</div>
+          <h3>Take the Quiz</h3>
+          <p>
+            Answer the questions and instantly see your final score.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- QUIZ APP -->
+  <section id="quiz-app">
+
+    <div class="container">
+
+      <!-- SETUP -->
+      <div class="quiz-box" id="setup-screen">
+
+        <h2>Create Your Quiz</h2>
+
+        <p>
+          Choose your quiz settings and start testing your knowledge.
+        </p>
+
+        <div class="form-group">
+          <label for="topic">Quiz Topic</label>
+
+          <input
+            type="text"
+            id="topic"
+            placeholder="Example: Science"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="question-count">Number of Questions</label>
+
+          <select id="question-count">
+            <option value="5">5 Questions</option>
+            <option value="10">10 Questions</option>
+            <option value="15">15 Questions</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="difficulty">Difficulty</label>
+
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+
+        <button class="primary-btn" onclick="startQuiz()">
+          Start Quiz
+        </button>
+
+      </div>
+
+
+      <!-- QUESTIONS -->
+      <div class="quiz-box" id="question-screen" style="display:none">
+
+        <div class="quiz-top">
+          <span id="question-number">Question 1</span>
+          <span id="score-display">Score: 0</span>
+        </div>
+
+        <div class="progress">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="question" id="question-text"></div>
+
+        <div class="options" id="options"></div>
+
+        <div class="quiz-buttons">
+
+          <button
+            class="secondary-btn"
+            onclick="previousQuestion()"
+          >
+            Previous
+          </button>
+
+          <button
+            class="primary-btn"
+            onclick="nextQuestion()"
+          >
+            Next
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- RESULTS -->
+      <div class="quiz-box result-card" id="result-screen" style="display:none">
+
+        <h2>🎉 Quiz Complete!</h2>
+
+        <div class="score" id="final-score">0%</div>
+
+        <p id="result-message"></p>
+
+        <div class="stats">
+
+          <div class="stat">
+            <strong id="total-stat">0</strong>
+            Total
+          </div>
+
+          <div class="stat">
+            <strong id="correct-stat">0</strong>
+            Correct
+          </div>
+
+          <div class="stat">
+            <strong id="wrong-stat">0</strong>
+            Wrong
+          </div>
+
+        </div>
+
+        <button class="primary-btn" onclick="restartQuiz()">
+          Try Again
+        </button>
+
+        <div class="review" id="review"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SEO CONTENT -->
+  <section class="seo-content">
+
+    <div class="container content">
+
+      <h2>Free Online Quiz Maker</h2>
+
+      <p>
+        Quizly AI is a free online quiz maker designed for students,
+        teachers, learners and quiz lovers. Create and play interactive
+        multiple-choice quizzes from your browser without installing
+        additional software.
+      </p>
+
+      <h2>Create Quizzes by Topic</h2>
+
+      <p>
+        Choose a topic such as science, animals, general knowledge,
+        history or other subjects. Quizly AI makes it easy to practice
+        your knowledge through fun and interactive questions.
+      </p>
+
+      <h2>Choose Your Quiz Difficulty</h2>
+
+      <p>
+        Select Easy, Medium or Hard difficulty to match your preferred
+        challenge level. Whether you are learning something new or
+        testing your existing knowledge, you can choose a suitable level.
+      </p>
+
+      <h2>Test Your Knowledge Online</h2>
+
+      <p>
+        Answer multiple-choice questions and receive your score instantly.
+        Quizly AI shows your total score, correct answers and incorrect
+        answers so you can review your performance.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FAQ -->
+  <section id="faq">
+
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>Frequently Asked Questions</h2>
+
+        <p>
+          Learn more about Quizly AI and our online quiz maker.
+        </p>
+      </div>
+
+      <div class="faq">
+
+        <details>
+          <summary>What is Quizly AI?</summary>
+
+          <p>
+            Quizly AI is an online quiz maker that lets users create
+            and play interactive quizzes based on different topics
+            and difficulty levels.
+          </p>
+        </details>
+
+        <details>
+          <summary>Is Quizly AI free?</summary>
+
+          <p>
+            Yes. Quizly AI is designed as a free online quiz-making
+            and quiz-playing website.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I create quizzes online?</summary>
+
+          <p>
+            Yes. Choose a topic, select the number of questions and
+            difficulty level, then start your quiz directly in your browser.
+          </p>
+        </details>
+
+        <details>
+          <summary>What topics can I use?</summary>
+
+          <p>
+            You can use topics such as science, animals, general knowledge,
+            history and many other subjects.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta">
+
+    <div class="container">
+
+      <h2>Ready to Test Your Knowledge?</h2>
+
+      <p>
+        Create a quiz and see how much you know.
+      </p>
+
+      <button class="primary-btn" onclick="showQuiz()">
+        Start Quiz
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      © 2026 Quizly AI. All rights reserved.
+    </p>
+
+    <p>
+      Free Online Quiz Maker
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    /* QUESTION DATABASE */
+
+    const questionBank = {
+
+      science: [
+        {
+          question: "What planet is known as the Red Planet?",
+          options: ["Earth", "Mars", "Jupiter", "Venus"],
+          answer: 1
+        },
+        {
+          question: "What gas do humans need to breathe?",
+          options: ["Oxygen", "Carbon dioxide", "Helium", "Hydrogen"],
+          answer: 0
+        },
+        {
+          question: "What is H2O commonly known as?",
+          options: ["Salt", "Water", "Oxygen", "Hydrogen"],
+          answer: 1
+        },
+        {
+          question: "How many legs does a spider have?",
+          options: ["6", "8", "10", "12"],
+          answer: 1
+        },
+        {
+          question: "What force keeps us on the ground?",
+          options: ["Magnetism", "Gravity", "Friction", "Electricity"],
+          answer: 1
+        }
+      ],
+
+      animals: [
+        {
+          question: "Which animal is known as the king of the jungle?",
+          options: ["Tiger", "Lion", "Elephant", "Bear"],
+          answer: 1
+        },
+        {
+          question: "What is the largest land animal?",
+          options: ["Giraffe", "Elephant", "Rhino", "Hippo"],
+          answer: 1
+        },
+        {
+          question: "Which animal can fly?",
+          options: ["Dog", "Cat", "Eagle", "Elephant"],
+          answer: 2
+        },
+        {
+          question: "Which animal is famous for its black and white stripes?",
+          options: ["Zebra", "Lion", "Monkey", "Horse"],
+          answer: 0
+        },
+        {
+          question: "What do pandas mainly eat?",
+          options: ["Meat", "Bamboo", "Fish", "Fruit"],
+          answer: 1
+        }
+      ],
+
+      general: [
+        {
+          question: "What is the capital of France?",
+          options: ["London", "Paris", "Rome", "Madrid"],
+          answer: 1
+        },
+        {
+          question: "How many days are in a week?",
+          options: ["5", "6", "7", "8"],
+          answer: 2
+        },
+        {
+          question: "Which color is made by mixing red and blue?",
+          options: ["Green", "Orange", "Purple", "Yellow"],
+          answer: 2
+        },
+        {
+          question: "How many continents are there?",
+          options: ["5", "6", "7", "8"],
+          answer: 2
+        },
+        {
+          question: "Which is the largest ocean?",
+          options: ["Atlantic", "Indian", "Pacific", "Arctic"],
+          answer: 2
+        }
+      ]
+
+    };
+
+
+    let currentQuestions = [];
+    let currentQuestion = 0;
+    let selectedAnswers = [];
+    let score = 0;
+
+
+    /* SHOW QUIZ */
+
+    function showQuiz() {
+
+      document.getElementById("quiz-app").style.display = "block";
+
+      document.getElementById("quiz-app").scrollIntoView({
+        behavior: "smooth"
+      });
+
+      document.getElementById("setup-screen").style.display = "block";
+      document.getElementById("question-screen").style.display = "none";
+      document.getElementById("result-screen").style.display = "none";
+    }
+
+
+    /* START QUIZ */
+
+    function startQuiz() {
+
+      const topic =
+        document.getElementById("topic").value
+        .trim()
+        .toLowerCase();
+
+      const count =
+        parseInt(
+          document.getElementById("question-count").value
+        );
+
+      let selectedTopic = "general";
+
+      if (topic.includes("science")) {
+        selectedTopic = "science";
+      }
+
+      if (topic.includes("animal")) {
+        selectedTopic = "animals";
+      }
+
+      currentQuestions = [...questionBank[selectedTopic]];
+
+      currentQuestions =
+        currentQuestions
+        .sort(() => Math.random() - 0.5)
+        .slice(0, Math.min(count, currentQuestions.length));
+
+      currentQuestion = 0;
+      selectedAnswers = [];
+      score = 0;
+
+      document.getElementById("setup-screen").style.display = "none";
+      document.getElementById("question-screen").style.display = "block";
+      document.getElementById("result-screen").style.display = "none";
+
+      showQuestion();
+    }
+
+
+    /* SHOW QUESTION */
+
+    function showQuestion() {
+
+      const question = currentQuestions[currentQuestion];
+
+      document.getElementById("question-number").textContent =
+        "Question " + (currentQuestion + 1) +
+        " of " + currentQuestions.length;
+
+      document.getElementById("score-display").textContent =
+        "Score: " + score;
+
+      document.getElementById("question-text").textContent =
+        question.question;
+
+      const progress =
+        ((currentQuestion + 1) / currentQuestions.length) * 100;
+
+      document.getElementById("progress-bar").style.width =
+        progress + "%";
+
+      const optionsContainer =
+        document.getElementById("options");
+
+      optionsContainer.innerHTML = "";
+
+      question.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+
+        button.className = "option";
+
+        button.textContent = option;
+
+        if (selectedAnswers[currentQuestion] === index) {
+          button.classList.add("selected");
+        }
+
+        button.onclick = () => selectAnswer(index);
+
+        optionsContainer.appendChild(button);
+
+      });
+
+    }
+
+
+    /* SELECT ANSWER */
+
+    function selectAnswer(index) {
+
+      selectedAnswers[currentQuestion] = index;
+
+      document
+        .querySelectorAll(".option")
+        .forEach((button, buttonIndex) => {
+
+          button.classList.toggle(
+            "selected",
+            buttonIndex === index
+          );
+
+        });
+
+    }
+
+
+    /* NEXT QUESTION */
+
+    function nextQuestion() {
+
+      if (selectedAnswers[currentQuestion] === undefined) {
+
+        alert("Please select an answer first.");
+
+        return;
+      }
+
+      if (currentQuestion < currentQuestions.length - 1) {
+
+        currentQuestion++;
+
+        showQuestion();
+
+      } else {
+
+        finishQuiz();
+
+      }
+
+    }
+
+
+    /* PREVIOUS QUESTION */
+
+    function previousQuestion() {
+
+      if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        showQuestion();
+
+      }
+
+    }
+
+
+    /* FINISH */
+
+    function finishQuiz() {
+
+      score = 0;
+
+      currentQuestions.forEach((question, index) => {
+
+        if (selectedAnswers[index] === question.answer) {
+
+          score++;
+
+        }
+
+      });
+
+      const total = currentQuestions.length;
+
+      const percentage =
+        Math.round((score / total) * 100);
+
+      document.getElementById("question-screen").style.display = "none";
+
+      document.getElementById("result-screen").style.display = "block";
+
+      document.getElementById("final-score").textContent =
+        percentage + "%";
+
+      document.getElementById("total-stat").textContent =
+        total;
+
+      document.getElementById("correct-stat").textContent =
+        score;
+
+      document.getElementById("wrong-stat").textContent =
+        total - score;
+
+      let message = "";
+
+      if (percentage >= 80) {
+        message = "Excellent work! 🎉";
+      } else if (percentage >= 50) {
+        message = "Good job! Keep learning! 👍";
+      } else {
+        message = "Keep practicing! You can do it! 💪";
+      }
+
+      document.getElementById("result-message").textContent =
+        message;
+
+      createReview();
+
+    }
+
+
+    /* REVIEW */
+
+    function createReview() {
+
+      const review =
+        document.getElementById("review");
+
+      review.innerHTML = "<h3>Answer Review</h3>";
+
+      currentQuestions.forEach((question, index) => {
+
+        const userAnswer =
+          selectedAnswers[index];
+
+        const correct =
+          userAnswer === question.answer;
+
+        const item =
+          document.createElement("div");
+
+        item.className =
+          "review-item " +
+          (correct ? "correct" : "wrong");
+
+        item.innerHTML = `
+          <strong>${index + 1}. ${question.question}</strong>
+          <p>Your answer:
+          ${question.options[userAnswer] || "Not answered"}</p>
+          <p>Correct answer:
+          ${question.options[question.answer]}</p>
+        `;
+
+        review.appendChild(item);
+
+      });
+
+    }
+
+
+    /* RESTART */
+
+    function restartQuiz() {
+
+      document.getElementById("result-screen").style.display = "none";
+
+      document.getElementById("setup-screen").style.display = "block";
+
+      document
+        .getElementById("quiz-app")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+  </script>
+
 </body>
 </html>
