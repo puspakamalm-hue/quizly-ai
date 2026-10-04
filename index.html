@@ -3,38 +3,31 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- Mobile Responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO Title -->
   <title>Quizly AI - Free AI Quiz Maker Online</title>
 
-  <!-- SEO Description -->
   <meta
     name="description"
-    content="Quizly AI is a free online quiz maker. Create fun quizzes by topic, difficulty, and question count. Test your knowledge with interactive multiple-choice quizzes."
+    content="Quizly AI is a free online AI quiz maker. Create interactive quizzes by topic, difficulty, and question count."
   >
 
-  <!-- Keywords -->
   <meta
     name="keywords"
-    content="Quizly AI, AI quiz maker, free quiz maker, online quiz maker, quiz generator, free online quizzes, quiz creator, multiple choice quiz, trivia quiz"
+    content="Quizly AI, AI quiz maker, free quiz maker, online quiz maker, AI quiz generator, free online quizzes, quiz creator, multiple choice quiz, trivia quiz"
   >
 
-  <!-- Search Engine Instructions -->
   <meta name="robots" content="index, follow">
 
-  <!-- Canonical URL -->
   <link
     rel="canonical"
     href="https://puspakamalm-hue.github.io/quizly-ai/"
   >
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Quizly AI - Free Online Quiz Maker">
+  <meta property="og:title" content="Quizly AI - Free AI Quiz Maker">
   <meta
     property="og:description"
-    content="Create and play fun online quizzes with Quizly AI."
+    content="Create AI-powered quizzes by topic, difficulty and question count."
   >
   <meta
     property="og:url"
@@ -43,25 +36,20 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Quizly AI">
 
-  <!-- Twitter/X -->
   <meta name="twitter:card" content="summary">
-  <meta
-    name="twitter:title"
-    content="Quizly AI - Free Online Quiz Maker"
-  >
+  <meta name="twitter:title" content="Quizly AI - Free AI Quiz Maker">
   <meta
     name="twitter:description"
-    content="Create and play fun online quizzes with Quizly AI."
+    content="Create AI-powered quizzes instantly with Quizly AI."
   >
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Quizly AI",
     "url": "https://puspakamalm-hue.github.io/quizly-ai/",
-    "description": "A free online quiz maker for creating and playing interactive quizzes.",
+    "description": "An AI-powered online quiz maker for creating interactive quizzes.",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Web",
     "offers": {
@@ -105,8 +93,6 @@
       margin: auto;
     }
 
-    /* NAVIGATION */
-
     nav {
       background: white;
       border-bottom: 1px solid #e8eaf0;
@@ -148,8 +134,6 @@
     .nav-links a:hover {
       color: #5b4bdb;
     }
-
-    /* HERO */
 
     .hero {
       padding: 90px 0 80px;
@@ -202,6 +186,12 @@
       background: #4939c4;
     }
 
+    .primary-btn:disabled {
+      opacity: 0.7;
+      cursor: wait;
+      transform: none;
+    }
+
     .secondary-btn {
       border: 1px solid #d9dce6;
       background: white;
@@ -211,8 +201,6 @@
       font-weight: 800;
       font-size: 16px;
     }
-
-    /* FEATURES */
 
     section {
       padding: 75px 0;
@@ -261,8 +249,6 @@
       color: #687386;
     }
 
-    /* HOW IT WORKS */
-
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -289,8 +275,6 @@
       color: white;
       font-weight: bold;
     }
-
-    /* QUIZ APP */
 
     #quiz-app {
       display: none;
@@ -398,7 +382,33 @@
       gap: 12px;
     }
 
-    /* RESULTS */
+    .loading {
+      text-align: center;
+      padding: 35px 10px;
+    }
+
+    .loading-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.15);
+        opacity: 0.65;
+      }
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 10px;
+      background: #fff1f2;
+      color: #b42318;
+      border: 1px solid #fecdd3;
+    }
 
     .result-card {
       text-align: center;
@@ -449,8 +459,6 @@
       border-left: 5px solid #ef4444;
     }
 
-    /* SEO CONTENT */
-
     .seo-content {
       background: white;
     }
@@ -469,8 +477,6 @@
       color: #5f6878;
       margin-bottom: 15px;
     }
-
-    /* FAQ */
 
     .faq {
       max-width: 850px;
@@ -495,8 +501,6 @@
       color: #687386;
     }
 
-    /* CTA */
-
     .cta {
       background: #17152d;
       color: white;
@@ -509,21 +513,12 @@
       margin: 15px auto 25px;
     }
 
-    /* FOOTER */
-
     footer {
       background: #11101f;
       color: #aaa7b9;
       text-align: center;
       padding: 25px;
     }
-
-    footer a {
-      color: #cfcbe7;
-      text-decoration: none;
-    }
-
-    /* RESPONSIVE */
 
     @media (max-width: 800px) {
       .features,
@@ -556,7 +551,6 @@
 
 <body>
 
-  <!-- NAVIGATION -->
   <nav>
     <div class="container nav-inner">
       <a href="#" class="logo">Quizly<span>AI</span></a>
@@ -573,12 +567,10 @@
     </div>
   </nav>
 
-
-  <!-- HERO -->
   <header class="hero">
     <div class="container">
 
-      <div class="badge">✨ Free Online Quiz Maker</div>
+      <div class="badge">✨ AI-Powered Quiz Maker</div>
 
       <h1>
         Create Fun Quizzes<br>
@@ -586,9 +578,9 @@
       </h1>
 
       <p>
-        Quizly AI is a free online quiz maker that lets you create
-        interactive quizzes by topic, difficulty and number of questions.
-        Test your knowledge and see your results instantly.
+        Quizly AI creates interactive multiple-choice quizzes using AI.
+        Choose any topic, select your difficulty and number of questions,
+        then start learning.
       </p>
 
       <button class="primary-btn" onclick="showQuiz()">
@@ -598,8 +590,6 @@
     </div>
   </header>
 
-
-  <!-- FEATURES -->
   <section id="features">
     <div class="container">
 
@@ -607,18 +597,18 @@
         <h2>Powerful Quiz Maker Features</h2>
 
         <p>
-          Everything you need to create and enjoy engaging online quizzes.
+          Create custom AI-generated quizzes for learning, practice and fun.
         </p>
       </div>
 
       <div class="features">
 
         <article class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3>Choose Your Topic</h3>
+          <div class="feature-icon">🤖</div>
+          <h3>AI Quiz Generation</h3>
           <p>
-            Create quizzes around science, animals, general knowledge
-            and other interesting subjects.
+            Enter almost any topic and Quizly AI generates fresh
+            multiple-choice questions for you.
           </p>
         </article>
 
@@ -645,8 +635,6 @@
     </div>
   </section>
 
-
-  <!-- HOW IT WORKS -->
   <section id="how-it-works">
     <div class="container">
 
@@ -654,7 +642,7 @@
         <h2>How Quizly AI Works</h2>
 
         <p>
-          Start testing your knowledge in just three simple steps.
+          Create a personalized quiz in three simple steps.
         </p>
       </div>
 
@@ -664,7 +652,7 @@
           <div class="step-number">1</div>
           <h3>Choose a Topic</h3>
           <p>
-            Enter a topic or choose one of the available subjects.
+            Enter any subject you want to learn or test yourself on.
           </p>
         </article>
 
@@ -680,7 +668,7 @@
           <div class="step-number">3</div>
           <h3>Take the Quiz</h3>
           <p>
-            Answer the questions and instantly see your final score.
+            Answer AI-generated questions and instantly see your score.
           </p>
         </article>
 
@@ -689,19 +677,16 @@
     </div>
   </section>
 
-
-  <!-- QUIZ APP -->
   <section id="quiz-app">
 
     <div class="container">
 
-      <!-- SETUP -->
       <div class="quiz-box" id="setup-screen">
 
-        <h2>Create Your Quiz</h2>
+        <h2>Create Your AI Quiz</h2>
 
         <p>
-          Choose your quiz settings and start testing your knowledge.
+          Enter a topic and let Quizly AI create your questions.
         </p>
 
         <div class="form-group">
@@ -710,7 +695,8 @@
           <input
             type="text"
             id="topic"
-            placeholder="Example: Science"
+            placeholder="Example: Solar System"
+            maxlength="200"
           >
         </div>
 
@@ -728,21 +714,44 @@
           <label for="difficulty">Difficulty</label>
 
           <select id="difficulty">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="Hard">Hard</option>
           </select>
         </div>
 
-        <button class="primary-btn" onclick="startQuiz()">
-          Start Quiz
+        <button
+          class="primary-btn"
+          id="generate-button"
+          onclick="startQuiz()"
+        >
+          🤖 Generate AI Quiz
         </button>
+
+        <div class="error-message" id="error-message"></div>
 
       </div>
 
+      <div
+        class="quiz-box"
+        id="loading-screen"
+        style="display:none"
+      >
+        <div class="loading">
+          <div class="loading-icon">🤖</div>
+          <h2>Creating Your Quiz...</h2>
+          <p>
+            Quizly AI is generating questions for you.
+            This may take a few seconds.
+          </p>
+        </div>
+      </div>
 
-      <!-- QUESTIONS -->
-      <div class="quiz-box" id="question-screen" style="display:none">
+      <div
+        class="quiz-box"
+        id="question-screen"
+        style="display:none"
+      >
 
         <div class="quiz-top">
           <span id="question-number">Question 1</span>
@@ -750,12 +759,21 @@
         </div>
 
         <div class="progress">
-          <div class="progress-bar" id="progress-bar"></div>
+          <div
+            class="progress-bar"
+            id="progress-bar"
+          ></div>
         </div>
 
-        <div class="question" id="question-text"></div>
+        <div
+          class="question"
+          id="question-text"
+        ></div>
 
-        <div class="options" id="options"></div>
+        <div
+          class="options"
+          id="options"
+        ></div>
 
         <div class="quiz-buttons">
 
@@ -777,13 +795,20 @@
 
       </div>
 
-
-      <!-- RESULTS -->
-      <div class="quiz-box result-card" id="result-screen" style="display:none">
+      <div
+        class="quiz-box result-card"
+        id="result-screen"
+        style="display:none"
+      >
 
         <h2>🎉 Quiz Complete!</h2>
 
-        <div class="score" id="final-score">0%</div>
+        <div
+          class="score"
+          id="final-score"
+        >
+          0%
+        </div>
 
         <p id="result-message"></p>
 
@@ -806,11 +831,17 @@
 
         </div>
 
-        <button class="primary-btn" onclick="restartQuiz()">
-          Try Again
+        <button
+          class="primary-btn"
+          onclick="restartQuiz()"
+        >
+          Create Another Quiz
         </button>
 
-        <div class="review" id="review"></div>
+        <div
+          class="review"
+          id="review"
+        ></div>
 
       </div>
 
@@ -818,51 +849,45 @@
 
   </section>
 
-
-  <!-- SEO CONTENT -->
   <section class="seo-content">
 
     <div class="container content">
 
-      <h2>Free Online Quiz Maker</h2>
+      <h2>Free AI Quiz Maker</h2>
 
       <p>
-        Quizly AI is a free online quiz maker designed for students,
-        teachers, learners and quiz lovers. Create and play interactive
-        multiple-choice quizzes from your browser without installing
-        additional software.
+        Quizly AI is a free online AI quiz maker designed for students,
+        teachers, learners and quiz lovers. Enter a topic and create
+        interactive multiple-choice quizzes directly in your browser.
       </p>
 
-      <h2>Create Quizzes by Topic</h2>
+      <h2>Create AI Quizzes by Topic</h2>
 
       <p>
-        Choose a topic such as science, animals, general knowledge,
-        history or other subjects. Quizly AI makes it easy to practice
-        your knowledge through fun and interactive questions.
+        Quizly AI can generate questions about many subjects including
+        science, history, geography, technology, animals, mathematics,
+        general knowledge and more.
       </p>
 
       <h2>Choose Your Quiz Difficulty</h2>
 
       <p>
-        Select Easy, Medium or Hard difficulty to match your preferred
-        challenge level. Whether you are learning something new or
-        testing your existing knowledge, you can choose a suitable level.
+        Select Easy, Medium or Hard difficulty to create a quiz that
+        matches your preferred challenge level.
       </p>
 
       <h2>Test Your Knowledge Online</h2>
 
       <p>
-        Answer multiple-choice questions and receive your score instantly.
-        Quizly AI shows your total score, correct answers and incorrect
-        answers so you can review your performance.
+        Answer each question and receive your score instantly. Quizly AI
+        shows your correct answers, incorrect answers and a complete
+        answer review.
       </p>
 
     </div>
 
   </section>
 
-
-  <!-- FAQ -->
   <section id="faq">
 
     <div class="container">
@@ -871,7 +896,7 @@
         <h2>Frequently Asked Questions</h2>
 
         <p>
-          Learn more about Quizly AI and our online quiz maker.
+          Learn more about Quizly AI.
         </p>
       </div>
 
@@ -881,9 +906,8 @@
           <summary>What is Quizly AI?</summary>
 
           <p>
-            Quizly AI is an online quiz maker that lets users create
-            and play interactive quizzes based on different topics
-            and difficulty levels.
+            Quizly AI is an online AI quiz maker that creates
+            interactive multiple-choice quizzes from a topic you provide.
           </p>
         </details>
 
@@ -891,17 +915,8 @@
           <summary>Is Quizly AI free?</summary>
 
           <p>
-            Yes. Quizly AI is designed as a free online quiz-making
-            and quiz-playing website.
-          </p>
-        </details>
-
-        <details>
-          <summary>Can I create quizzes online?</summary>
-
-          <p>
-            Yes. Choose a topic, select the number of questions and
-            difficulty level, then start your quiz directly in your browser.
+            The Quizly AI website is designed to be free to use.
+            AI generation may be subject to service limits and API costs.
           </p>
         </details>
 
@@ -909,8 +924,18 @@
           <summary>What topics can I use?</summary>
 
           <p>
-            You can use topics such as science, animals, general knowledge,
-            history and many other subjects.
+            You can enter topics such as science, history, geography,
+            technology, animals, mathematics, sports and general knowledge.
+          </p>
+        </details>
+
+        <details>
+          <summary>How are the questions generated?</summary>
+
+          <p>
+            Quizly AI sends your quiz topic, difficulty and question count
+            to its secure AI backend, which uses the OpenAI API to generate
+            the quiz.
           </p>
         </details>
 
@@ -920,8 +945,6 @@
 
   </section>
 
-
-  <!-- CTA -->
   <section class="cta">
 
     <div class="container">
@@ -929,10 +952,13 @@
       <h2>Ready to Test Your Knowledge?</h2>
 
       <p>
-        Create a quiz and see how much you know.
+        Enter a topic and create your first AI-powered quiz.
       </p>
 
-      <button class="primary-btn" onclick="showQuiz()">
+      <button
+        class="primary-btn"
+        onclick="showQuiz()"
+      >
         Start Quiz
       </button>
 
@@ -940,8 +966,6 @@
 
   </section>
 
-
-  <!-- FOOTER -->
   <footer>
 
     <p>
@@ -949,103 +973,19 @@
     </p>
 
     <p>
-      Free Online Quiz Maker
+      AI-Powered Free Online Quiz Maker
     </p>
 
   </footer>
 
-
   <script>
 
-    /* QUESTION DATABASE */
+    /*
+      YOUR SECURE VERCEL BACKEND
+    */
 
-    const questionBank = {
-
-      science: [
-        {
-          question: "What planet is known as the Red Planet?",
-          options: ["Earth", "Mars", "Jupiter", "Venus"],
-          answer: 1
-        },
-        {
-          question: "What gas do humans need to breathe?",
-          options: ["Oxygen", "Carbon dioxide", "Helium", "Hydrogen"],
-          answer: 0
-        },
-        {
-          question: "What is H2O commonly known as?",
-          options: ["Salt", "Water", "Oxygen", "Hydrogen"],
-          answer: 1
-        },
-        {
-          question: "How many legs does a spider have?",
-          options: ["6", "8", "10", "12"],
-          answer: 1
-        },
-        {
-          question: "What force keeps us on the ground?",
-          options: ["Magnetism", "Gravity", "Friction", "Electricity"],
-          answer: 1
-        }
-      ],
-
-      animals: [
-        {
-          question: "Which animal is known as the king of the jungle?",
-          options: ["Tiger", "Lion", "Elephant", "Bear"],
-          answer: 1
-        },
-        {
-          question: "What is the largest land animal?",
-          options: ["Giraffe", "Elephant", "Rhino", "Hippo"],
-          answer: 1
-        },
-        {
-          question: "Which animal can fly?",
-          options: ["Dog", "Cat", "Eagle", "Elephant"],
-          answer: 2
-        },
-        {
-          question: "Which animal is famous for its black and white stripes?",
-          options: ["Zebra", "Lion", "Monkey", "Horse"],
-          answer: 0
-        },
-        {
-          question: "What do pandas mainly eat?",
-          options: ["Meat", "Bamboo", "Fish", "Fruit"],
-          answer: 1
-        }
-      ],
-
-      general: [
-        {
-          question: "What is the capital of France?",
-          options: ["London", "Paris", "Rome", "Madrid"],
-          answer: 1
-        },
-        {
-          question: "How many days are in a week?",
-          options: ["5", "6", "7", "8"],
-          answer: 2
-        },
-        {
-          question: "Which color is made by mixing red and blue?",
-          options: ["Green", "Orange", "Purple", "Yellow"],
-          answer: 2
-        },
-        {
-          question: "How many continents are there?",
-          options: ["5", "6", "7", "8"],
-          answer: 2
-        },
-        {
-          question: "Which is the largest ocean?",
-          options: ["Atlantic", "Indian", "Pacific", "Arctic"],
-          answer: 2
-        }
-      ]
-
-    };
+    const API_URL =
+      "https://quizly-ai-gray.vercel.app/api/generate-quiz";
 
 
     let currentQuestions = [];
@@ -1054,7 +994,9 @@
     let score = 0;
 
 
-    /* SHOW QUIZ */
+    /*
+      SHOW QUIZ
+    */
 
     function showQuiz() {
 
@@ -1065,134 +1007,324 @@
       });
 
       document.getElementById("setup-screen").style.display = "block";
+      document.getElementById("loading-screen").style.display = "none";
       document.getElementById("question-screen").style.display = "none";
       document.getElementById("result-screen").style.display = "none";
+
+      document.getElementById("error-message").style.display = "none";
+
     }
 
 
-    /* START QUIZ */
+    /*
+      START AI QUIZ
+    */
 
-    function startQuiz() {
+    async function startQuiz() {
 
       const topic =
-        document.getElementById("topic").value
-        .trim()
-        .toLowerCase();
+        document
+          .getElementById("topic")
+          .value
+          .trim();
 
       const count =
         parseInt(
           document.getElementById("question-count").value
         );
 
-      let selectedTopic = "general";
+      const difficulty =
+        document.getElementById("difficulty").value;
 
-      if (topic.includes("science")) {
-        selectedTopic = "science";
+
+      if (!topic) {
+
+        showError(
+          "Please enter a quiz topic first."
+        );
+
+        return;
+
       }
 
-      if (topic.includes("animal")) {
-        selectedTopic = "animals";
-      }
 
-      currentQuestions = [...questionBank[selectedTopic]];
+      const button =
+        document.getElementById("generate-button");
 
-      currentQuestions =
-        currentQuestions
-        .sort(() => Math.random() - 0.5)
-        .slice(0, Math.min(count, currentQuestions.length));
+      button.disabled = true;
 
-      currentQuestion = 0;
-      selectedAnswers = [];
-      score = 0;
+      button.textContent =
+        "🤖 Generating...";
+
 
       document.getElementById("setup-screen").style.display = "none";
-      document.getElementById("question-screen").style.display = "block";
-      document.getElementById("result-screen").style.display = "none";
 
-      showQuestion();
+      document.getElementById("loading-screen").style.display = "block";
+
+      document.getElementById("error-message").style.display = "none";
+
+
+      try {
+
+        const response =
+          await fetch(
+            API_URL,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type": "application/json"
+              },
+
+              body: JSON.stringify({
+                topic: topic,
+                difficulty: difficulty,
+                questionCount: count
+              })
+            }
+          );
+
+
+        const data =
+          await response.json();
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            data.error ||
+            "Unable to generate quiz."
+          );
+
+        }
+
+
+        if (
+          !data.questions ||
+          !Array.isArray(data.questions) ||
+          data.questions.length === 0
+        ) {
+
+          throw new Error(
+            "The AI did not return valid questions."
+          );
+
+        }
+
+
+        currentQuestions =
+          data.questions
+            .filter(question =>
+              question &&
+              typeof question.question === "string" &&
+              Array.isArray(question.options) &&
+              question.options.length === 4 &&
+              Number.isInteger(question.answer)
+            )
+            .slice(0, count);
+
+
+        if (currentQuestions.length === 0) {
+
+          throw new Error(
+            "No valid questions were returned."
+          );
+
+        }
+
+
+        currentQuestion = 0;
+
+        selectedAnswers = [];
+
+        score = 0;
+
+
+        document.getElementById("loading-screen").style.display = "none";
+
+        document.getElementById("question-screen").style.display = "block";
+
+        showQuestion();
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("loading-screen").style.display = "none";
+
+        document.getElementById("setup-screen").style.display = "block";
+
+        showError(
+          error.message ||
+          "Something went wrong. Please try again."
+        );
+
+      } finally {
+
+        button.disabled = false;
+
+        button.textContent =
+          "🤖 Generate AI Quiz";
+
+      }
+
     }
 
 
-    /* SHOW QUESTION */
+    /*
+      SHOW ERROR
+    */
+
+    function showError(message) {
+
+      const errorBox =
+        document.getElementById("error-message");
+
+      errorBox.textContent = message;
+
+      errorBox.style.display = "block";
+
+    }
+
+
+    /*
+      SHOW QUESTION
+    */
 
     function showQuestion() {
 
-      const question = currentQuestions[currentQuestion];
+      const question =
+        currentQuestions[currentQuestion];
+
+
+      if (!question) {
+
+        finishQuiz();
+
+        return;
+
+      }
+
 
       document.getElementById("question-number").textContent =
-        "Question " + (currentQuestion + 1) +
-        " of " + currentQuestions.length;
+        "Question " +
+        (currentQuestion + 1) +
+        " of " +
+        currentQuestions.length;
+
 
       document.getElementById("score-display").textContent =
-        "Score: " + score;
+        "Score: " +
+        score;
+
 
       document.getElementById("question-text").textContent =
         question.question;
 
+
       const progress =
-        ((currentQuestion + 1) / currentQuestions.length) * 100;
+        ((currentQuestion + 1) /
+        currentQuestions.length) *
+        100;
+
 
       document.getElementById("progress-bar").style.width =
         progress + "%";
 
+
       const optionsContainer =
         document.getElementById("options");
 
+
       optionsContainer.innerHTML = "";
 
-      question.options.forEach((option, index) => {
 
-        const button = document.createElement("button");
+      question.options.forEach(
+        (option, index) => {
 
-        button.className = "option";
+          const button =
+            document.createElement("button");
 
-        button.textContent = option;
 
-        if (selectedAnswers[currentQuestion] === index) {
-          button.classList.add("selected");
+          button.className =
+            "option";
+
+
+          button.textContent =
+            option;
+
+
+          if (
+            selectedAnswers[currentQuestion] === index
+          ) {
+
+            button.classList.add("selected");
+
+          }
+
+
+          button.onclick =
+            () => selectAnswer(index);
+
+
+          optionsContainer.appendChild(button);
+
         }
-
-        button.onclick = () => selectAnswer(index);
-
-        optionsContainer.appendChild(button);
-
-      });
+      );
 
     }
 
 
-    /* SELECT ANSWER */
+    /*
+      SELECT ANSWER
+    */
 
     function selectAnswer(index) {
 
-      selectedAnswers[currentQuestion] = index;
+      selectedAnswers[currentQuestion] =
+        index;
+
 
       document
         .querySelectorAll(".option")
-        .forEach((button, buttonIndex) => {
+        .forEach(
+          (button, buttonIndex) => {
 
-          button.classList.toggle(
-            "selected",
-            buttonIndex === index
-          );
+            button.classList.toggle(
+              "selected",
+              buttonIndex === index
+            );
 
-        });
+          }
+        );
 
     }
 
 
-    /* NEXT QUESTION */
+    /*
+      NEXT QUESTION
+    */
 
     function nextQuestion() {
 
-      if (selectedAnswers[currentQuestion] === undefined) {
+      if (
+        selectedAnswers[currentQuestion] === undefined
+      ) {
 
-        alert("Please select an answer first.");
+        alert(
+          "Please select an answer first."
+        );
 
         return;
+
       }
 
-      if (currentQuestion < currentQuestions.length - 1) {
+
+      if (
+        currentQuestion <
+        currentQuestions.length - 1
+      ) {
 
         currentQuestion++;
 
@@ -1207,7 +1339,9 @@
     }
 
 
-    /* PREVIOUS QUESTION */
+    /*
+      PREVIOUS QUESTION
+    */
 
     function previousQuestion() {
 
@@ -1222,107 +1356,217 @@
     }
 
 
-    /* FINISH */
+    /*
+      FINISH QUIZ
+    */
 
     function finishQuiz() {
 
       score = 0;
 
-      currentQuestions.forEach((question, index) => {
 
-        if (selectedAnswers[index] === question.answer) {
+      currentQuestions.forEach(
+        (question, index) => {
 
-          score++;
+          if (
+            selectedAnswers[index] ===
+            question.answer
+          ) {
+
+            score++;
+
+          }
 
         }
+      );
 
-      });
 
-      const total = currentQuestions.length;
+      const total =
+        currentQuestions.length;
+
 
       const percentage =
-        Math.round((score / total) * 100);
+        Math.round(
+          (score / total) * 100
+        );
 
-      document.getElementById("question-screen").style.display = "none";
 
-      document.getElementById("result-screen").style.display = "block";
+      document.getElementById("question-screen").style.display =
+        "none";
+
+
+      document.getElementById("result-screen").style.display =
+        "block";
+
 
       document.getElementById("final-score").textContent =
         percentage + "%";
 
+
       document.getElementById("total-stat").textContent =
         total;
+
 
       document.getElementById("correct-stat").textContent =
         score;
 
+
       document.getElementById("wrong-stat").textContent =
         total - score;
 
+
       let message = "";
 
+
       if (percentage >= 80) {
-        message = "Excellent work! 🎉";
+
+        message =
+          "Excellent work! 🎉";
+
       } else if (percentage >= 50) {
-        message = "Good job! Keep learning! 👍";
+
+        message =
+          "Good job! Keep learning! 👍";
+
       } else {
-        message = "Keep practicing! You can do it! 💪";
+
+        message =
+          "Keep practicing! You can do it! 💪";
+
       }
+
 
       document.getElementById("result-message").textContent =
         message;
+
 
       createReview();
 
     }
 
 
-    /* REVIEW */
+    /*
+      REVIEW
+    */
 
     function createReview() {
 
       const review =
         document.getElementById("review");
 
-      review.innerHTML = "<h3>Answer Review</h3>";
 
-      currentQuestions.forEach((question, index) => {
+      review.innerHTML =
+        "<h3>Answer Review</h3>";
 
-        const userAnswer =
-          selectedAnswers[index];
 
-        const correct =
-          userAnswer === question.answer;
+      currentQuestions.forEach(
+        (question, index) => {
 
-        const item =
-          document.createElement("div");
+          const userAnswer =
+            selectedAnswers[index];
 
-        item.className =
-          "review-item " +
-          (correct ? "correct" : "wrong");
 
-        item.innerHTML = `
-          <strong>${index + 1}. ${question.question}</strong>
-          <p>Your answer:
-          ${question.options[userAnswer] || "Not answered"}</p>
-          <p>Correct answer:
-          ${question.options[question.answer]}</p>
-        `;
+          const correct =
+            userAnswer ===
+            question.answer;
 
-        review.appendChild(item);
 
-      });
+          const item =
+            document.createElement("div");
+
+
+          item.className =
+            "review-item " +
+            (correct ? "correct" : "wrong");
+
+
+          const questionTitle =
+            document.createElement("strong");
+
+
+          questionTitle.textContent =
+            (index + 1) +
+            ". " +
+            question.question;
+
+
+          const userAnswerText =
+            document.createElement("p");
+
+
+          userAnswerText.textContent =
+            "Your answer: " +
+            (
+              question.options[userAnswer] ||
+              "Not answered"
+            );
+
+
+          const correctAnswerText =
+            document.createElement("p");
+
+
+          correctAnswerText.textContent =
+            "Correct answer: " +
+            question.options[
+              question.answer
+            ];
+
+
+          item.appendChild(
+            questionTitle
+          );
+
+          item.appendChild(
+            userAnswerText
+          );
+
+          item.appendChild(
+            correctAnswerText
+          );
+
+
+          if (question.explanation) {
+
+            const explanation =
+              document.createElement("p");
+
+            explanation.textContent =
+              "Explanation: " +
+              question.explanation;
+
+            item.appendChild(
+              explanation
+            );
+
+          }
+
+
+          review.appendChild(item);
+
+        }
+      );
 
     }
 
 
-    /* RESTART */
+    /*
+      RESTART
+    */
 
     function restartQuiz() {
 
-      document.getElementById("result-screen").style.display = "none";
+      document.getElementById("result-screen").style.display =
+        "none";
 
-      document.getElementById("setup-screen").style.display = "block";
+
+      document.getElementById("setup-screen").style.display =
+        "block";
+
+
+      document.getElementById("error-message").style.display =
+        "none";
+
 
       document
         .getElementById("quiz-app")
