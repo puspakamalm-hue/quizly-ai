@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://puspakamalm-hue.github.io/quizly-ai/sitemap.xml
