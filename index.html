@@ -1286,6 +1286,90 @@
     }
 
   </style>
+  /* ==============================
+   FEEDBACK PANEL
+   ============================== */
+
+.feedback-section {
+  width: 100%;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+.feedback-card {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 35px 25px;
+  text-align: center;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    #f8f9ff,
+    #ffffff
+  );
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.feedback-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.feedback-card h2 {
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.feedback-card p {
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.feedback-button {
+  display: inline-block;
+  padding: 13px 25px;
+  border-radius: 10px;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.feedback-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Dark mode */
+
+body.dark .feedback-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+body.dark .feedback-card p {
+  color: #d1d5db;
+}
+
+@media (max-width: 600px) {
+
+  .feedback-card {
+    padding: 28px 18px;
+  }
+
+  .feedback-card h2 {
+    font-size: 22px;
+  }
+
+  .feedback-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+}
 </head>
 
 <body>
@@ -1748,7 +1832,31 @@
           >
             🔄 Generate Another Quiz
           </button>
+          <!-- FEEDBACK PANEL -->
+<section class="feedback-section" id="feedbackSection">
 
+  <div class="feedback-card">
+
+    <div class="feedback-icon">💬</div>
+
+    <h2>How was your Quizly AI experience?</h2>
+
+    <p>
+      We'd love to hear your feedback! Your opinion helps us
+      make Quizly AI better.
+    </p>
+
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSfIY90xswO7Yw4jwfg8jYFQhKsP3d1SMNp4xIzDweKaZ3u7fQ/viewform?usp=header"
+      target="_blank"
+      class="feedback-button"
+    >
+      ⭐ Give Your Feedback
+    </a>
+
+  </div>
+
+</section>
           <button
             class="secondary-btn"
             id="downloadBtn"
